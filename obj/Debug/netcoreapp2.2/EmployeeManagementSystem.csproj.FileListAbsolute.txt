@@ -4,7 +4,6 @@ G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManage
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\bin\Debug\netcoreapp2.2\EmployeeManagementSystem.dll
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\bin\Debug\netcoreapp2.2\EmployeeManagementSystem.pdb
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.csprojAssemblyReference.cache
-G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.csproj.CoreCompileInputs.cache
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.RazorAssemblyInfo.cache
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.RazorAssemblyInfo.cs
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.AssemblyInfoInputs.cache
@@ -12,3 +11,14 @@ G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManage
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.RazorTargetAssemblyInfo.cache
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.dll
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.pdb
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\bin\Debug\netcoreapp2.2\EmployeeManagementSystem.Views.dll
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\bin\Debug\netcoreapp2.2\EmployeeManagementSystem.Views.pdb
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.TagHelpers.input.cache
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.TagHelpers.output.cache
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.RazorCoreGenerate.cache
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.RazorTargetAssemblyInfo.cs
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.Views.pdb
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.csproj.CopyComplete
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\EmployeeManagementSystem.csproj.CoreCompileInputs.cache
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Home\EmployeeDetails.g.cshtml.cs
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
