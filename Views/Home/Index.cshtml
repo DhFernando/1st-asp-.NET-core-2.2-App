@@ -5,27 +5,37 @@
     ViewBag.Title = "Customer List";
 
 }
-    
-        <table>
-            <thead>
-                <tr>
-                    <td>#</td>
-                    <td>Name</td>
-                    <td>E-Mail</td>
-                    <td>Department</td>
-                </tr>
-            </thead>
-            <tbody>
-                
-                @foreach (var employee in Model)
-                {
-                    <tr>
-                        <td> @employee.Id</td>
-                        <td> @employee.Name</td>
-                        <td> @employee.Email</td>
-                        <td> @employee.Department</td>
-                    </tr>
-                }
 
-            </tbody>
-        </table>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">E-Mail</th>
+                <th scope="col">Department</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>
+                        @employee.Id
+                        <img src="~/Images/404-4045564_icon-man-png-icon-person-woman-png-clipart.jpg" style="height:30px;" class="rounded ml-2"/>
+                    </td>
+                    <td> @employee.Name</td>
+                    <td> @employee.Email</td>
+                    <td> @employee.Department</td>
+                    <td>  
+                       
+                        <a asp-controller="Home" asp-action="EmployeeDetails"  asp-route-id="@employee.Id" class="btn btn-sm btn-success" >View</a>
+                        <a class="btn btn-sm btn-primary">Edit</a>
+                        <a class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+       
