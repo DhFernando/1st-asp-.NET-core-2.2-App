@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<EmployeeManagementSystem.Models.Employee>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title></title>
-    </head>
-    <body>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Customer List";
+
+}
     
         <table>
             <thead>
@@ -28,10 +28,4 @@
                 }
 
             </tbody>
-
-           
-
         </table>
-
-    </body>
-    </html>

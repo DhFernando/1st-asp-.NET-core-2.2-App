@@ -1,16 +1,18 @@
 ﻿@model EmployeeManagementSystem.ViewModels.HomeGetEmployeeViewModel
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    @Model.Title
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Customer List";
 
-    @{
-        var employee = Model.Employee;
-    }
+}
+@Model.Title
 
-    @employee.Name
-</body>
-</html>
+@{
+    var employee = Model.Employee;
+}
+
+@employee.Name
+
+@section Scripts{ 
+    <script src="~/JS/CustomJavaScript.js"></script>
+}

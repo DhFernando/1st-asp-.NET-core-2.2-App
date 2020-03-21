@@ -30,7 +30,10 @@ namespace EmployeeManagementSystem
             }
             // app.UseDefaultFiles(); 
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            // app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes=> {
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            });
             app.Use(async (context , next) =>
             {
                 await context.Response.WriteAsync("Hello World! from 1st middleware");
