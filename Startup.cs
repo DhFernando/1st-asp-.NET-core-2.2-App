@@ -19,6 +19,7 @@ namespace EmployeeManagementSystem
         {
             services.AddMvc(); 
             services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddSingleton<IDepartmentRepository, MockDepartmentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +35,8 @@ namespace EmployeeManagementSystem
             app.UseMvc(routes=> {
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseMvc();
+
             app.Use(async (context , next) =>
             {
                 await context.Response.WriteAsync("Hello World! from 1st middleware");
