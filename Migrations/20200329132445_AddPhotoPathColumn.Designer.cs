@@ -3,14 +3,16 @@ using EmployeeManagementSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmployeeManagementSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200329132445_AddPhotoPathColumn")]
+    partial class AddPhotoPathColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,10 +31,10 @@ namespace EmployeeManagementSystem.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
+                    b.Property<string>("MyProperty");
+
                     b.Property<string>("Name")
                         .IsRequired();
-
-                    b.Property<string>("PhotoPath");
 
                     b.HasKey("Id");
 

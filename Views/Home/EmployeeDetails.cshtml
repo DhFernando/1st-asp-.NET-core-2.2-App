@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Customer List";
+    var PhotoPath = "~/Images/"+Model.Employee.PhotoPath ?? "no-image";
 }
 
 
@@ -18,7 +19,7 @@
             <div class="row">
                 <div class="card-body">
                     <div class="col-4 border-right float-left">
-                        <img src="~/Images/404-4045564_icon-man-png-icon-person-woman-png-clipart.jpg" style="height:150px" asp-append-version="true"/>
+                        <img src="@PhotoPath" style="height:150px" asp-append-version="true"/>
                     </div>
                     <div class="col-8 float-left">
                         <p class="border-bottom mb-3 pb-3">ID : @Model.Employee.Id</p>
