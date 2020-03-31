@@ -67,12 +67,14 @@ namespace EmployeeManagementSystem.Controllers
                 employee.Department = model.Department;
                 if(model.PhotoPath != null)
                 {
+                    if (model.ExistingPhotoPath != null)
+                    {
+                        String filePath = Path.Combine(hostingEnvironment.WebRootPath, "images", model.ExistingPhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
                     employee.PhotoPath = ProcessUploadedFile(model);
                 }
                 
-
-          
-
                 _employeeRepository.Update(employee);
 
                 return RedirectToAction("Index");
@@ -89,7 +91,11 @@ namespace EmployeeManagementSystem.Controllers
                 String uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "Images");
                 uniquFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
                 String filePath = Path.Combine(uploadsFolder, uniquFileName);
-                model.PhotoPath.CopyTo(new FileStream(filePath, FileMode.Create));
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.PhotoPath.CopyTo(fileStream);
+                }
+                
             }
 
             return uniquFileName;
