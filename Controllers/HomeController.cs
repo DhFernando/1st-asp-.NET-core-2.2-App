@@ -38,11 +38,61 @@ namespace EmployeeManagementSystem.Controllers
             
             return View(homeGetEmployeeViewModel);
         }
+
+
         [HttpGet]
-       
-        public ViewResult Create()
+        public ViewResult Edit(int id)
         {
+            Employee employee = _employeeRepository.GetEmployee(id);
+            EmployeeEditViewModel employeeEditViewModel = new EmployeeEditViewModel
+            {
+                Id = employee.Id,
+                Name = employee.Name,
+                Email = employee.Email,
+                Department = employee.Department,
+                ExistingPhotoPath = employee.PhotoPath      
+               
+            };
+            return View(employeeEditViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EmployeeEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee employee = _employeeRepository.GetEmployee(model.Id);
+                employee.Name = model.Name;
+                employee.Email = model.Email;
+                employee.Department = model.Department;
+                if(model.PhotoPath != null)
+                {
+                    employee.PhotoPath = ProcessUploadedFile(model);
+                }
+                
+
+          
+
+                _employeeRepository.Update(employee);
+
+                return RedirectToAction("Index");
+            }
             return View();
+
+        }
+
+        private string ProcessUploadedFile(EmployeeCreateViewModel model)
+        {
+            String uniquFileName = null;
+            if (model.PhotoPath != null)
+            {
+                String uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "Images");
+                uniquFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
+                String filePath = Path.Combine(uploadsFolder, uniquFileName);
+                model.PhotoPath.CopyTo(new FileStream(filePath, FileMode.Create));
+            }
+
+            return uniquFileName;
         }
 
         [HttpPost]
@@ -50,14 +100,7 @@ namespace EmployeeManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                String uniquFileName = null;
-                if (model.PhotoPath != null)
-                {
-                    String uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "Images");
-                    uniquFileName = Guid.NewGuid().ToString()+ "_" + model.PhotoPath.FileName;
-                    String filePath = Path.Combine(uploadsFolder, uniquFileName);
-                    model.PhotoPath.CopyTo(new FileStream(filePath, FileMode.Create));
-                }
+                string uniquFileName = ProcessUploadedFile(model);
 
                 Employee newEmployee = new Employee
                 {

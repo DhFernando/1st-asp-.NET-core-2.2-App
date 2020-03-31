@@ -26,3 +26,4 @@ G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManage
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Home\Create.g.cshtml.cs
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Home\Edit.g.cshtml.cs
