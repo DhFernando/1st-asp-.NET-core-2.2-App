@@ -39,6 +39,24 @@ namespace EmployeeManagementSystem.Controllers
             return View(homeGetEmployeeViewModel);
         }
 
+        private string ProcessUploadedFile(EmployeeCreateViewModel model)
+        {
+            String uniquFileName = null;
+            if (model.PhotoPath != null)
+            {
+                String uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "Images");
+                uniquFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
+                String filePath = Path.Combine(uploadsFolder, uniquFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.PhotoPath.CopyTo(fileStream);
+                }
+
+            }
+
+            return uniquFileName;
+        }
+
 
         [HttpGet]
         public ViewResult Edit(int id)
@@ -83,23 +101,12 @@ namespace EmployeeManagementSystem.Controllers
 
         }
 
-        private string ProcessUploadedFile(EmployeeCreateViewModel model)
+        [HttpGet]
+        public ViewResult Create()
         {
-            String uniquFileName = null;
-            if (model.PhotoPath != null)
-            {
-                String uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "Images");
-                uniquFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
-                String filePath = Path.Combine(uploadsFolder, uniquFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    model.PhotoPath.CopyTo(fileStream);
-                }
-                
-            }
-
-            return uniquFileName;
+            return View();
         }
+
 
         [HttpPost]
         public IActionResult Create(EmployeeCreateViewModel model)

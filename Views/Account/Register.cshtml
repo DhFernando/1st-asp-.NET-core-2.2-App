@@ -1,0 +1,41 @@
+﻿@model RegisterViewModel
+
+@{ 
+    ViewBag.Title = "User Register";
+}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <h3>@ViewBag.Title</h3>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <form enctype="multipart/form-data" asp-action="Register" asp-controller="Account" method="post">
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" placeholder="Employee E-Mail">
+                            <span class="text-danger" asp-validation-for="Email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password"></label>
+                            <input asp-for="Password" class="form-control">
+                            <span class="text-danger" asp-validation-for="Password"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ConfirmPassword"></label>
+                            <input asp-for="ConfirmPassword" class="form-control">
+                            <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>

@@ -8,14 +8,10 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagementSystem.ViewModels
 {
-    public class EmployeeCreateViewModel
+    public class EmployeeCreateViewModel : Employee
     {
-        public int Id { get; set; }
-        [Required]
-        public String Name { get; set; }
-        [Required]
-        public String Email { get; set; }
-        public Dept? Department { get; set; }
+       
         public IFormFile PhotoPath { get; set; }
+
     }
 }

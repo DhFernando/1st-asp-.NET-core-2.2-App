@@ -6,6 +6,7 @@ using EmployeeManagementSystem.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,7 @@ namespace EmployeeManagementSystem
             services.AddMvc(); 
             services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
             services.AddSingleton<IDepartmentRepository, MockDepartmentRepository>();
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +42,7 @@ namespace EmployeeManagementSystem
             // app.UseDefaultFiles(); 
             app.UseStaticFiles();
             // app.UseMvcWithDefaultRoute();
+            app.UseAuthentication();
             app.UseMvc(routes=> {
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
