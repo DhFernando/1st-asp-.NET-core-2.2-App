@@ -15,7 +15,7 @@ namespace EmployeeManagementSystem.Controllers
     {
         private readonly ILogger<ErrorController> logger;
 
-        public ErrorController(ILogger<ErrorController> logger)
+        public ErrorController(ILogger<ErrorController> logger) 
         {
             this.logger = logger;
         }

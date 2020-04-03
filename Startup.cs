@@ -29,7 +29,10 @@ namespace EmployeeManagementSystem
             services.AddMvc(); 
             services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
             services.AddSingleton<IDepartmentRepository, MockDepartmentRepository>();
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(option=> {
+                option.Password.RequiredLength = 4;
+                option.Password.RequiredUniqueChars = 1;
+            }).AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
