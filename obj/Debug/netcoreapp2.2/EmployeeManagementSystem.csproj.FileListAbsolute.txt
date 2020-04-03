@@ -29,3 +29,4 @@ G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManage
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Home\Edit.g.cshtml.cs
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Shared\NotFound.g.cshtml.cs
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Account\Register.g.cshtml.cs
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.g.cshtml.cs
