@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,11 +12,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagementSystem.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
-        public AccountController(UserManager<IdentityUser> userManager , SignInManager<IdentityUser> signInManager)
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
+        public AccountController(UserManager<ApplicationUser> userManager , SignInManager<ApplicationUser> signInManager)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
@@ -27,12 +30,25 @@ namespace EmployeeManagementSystem.Controllers
             return View();
         }
 
+        [AcceptVerbs("get" , "post")]
+        public async Task<IActionResult> IsEmailUse(String Email)
+        {
+            var user = await userManager.FindByEmailAsync(Email);
+            if (user == null) {
+                return Json(true);
+            }
+            else
+            {
+                return Json($"Email {Email} has alredy in use");
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = model.Email , Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email , Email = model.Email , City = model.City };
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -56,7 +72,7 @@ namespace EmployeeManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model , String returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +80,15 @@ namespace EmployeeManagementSystem.Controllers
                 var result = await signInManager.PasswordSignInAsync(model.Email, model.Password,model.RememberMe,false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    if(returnUrl != null)
+                    {
+                        return LocalRedirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    
                 }
                 
                 

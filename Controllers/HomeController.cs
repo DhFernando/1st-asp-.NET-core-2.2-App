@@ -1,5 +1,6 @@
 ﻿using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagementSystem.Controllers 
 {
-    
+  
     public class HomeController : Controller
     {
         IEmployeeRepository _employeeRepository;
@@ -23,12 +24,12 @@ namespace EmployeeManagementSystem.Controllers
             
         }
 
-        
+        [AllowAnonymous]
         public ViewResult Index()
         {
             return View(_employeeRepository.GetAllEmployees()) ;
         }
-
+        [AllowAnonymous]
         public ViewResult EmployeeDetails(int? id)
         {
             HomeGetEmployeeViewModel homeGetEmployeeViewModel = new HomeGetEmployeeViewModel() {
@@ -59,6 +60,7 @@ namespace EmployeeManagementSystem.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ViewResult Edit(int id)
         {
             Employee employee = _employeeRepository.GetEmployee(id);
@@ -75,6 +77,7 @@ namespace EmployeeManagementSystem.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(EmployeeEditViewModel model)
         {
             if (ModelState.IsValid)
@@ -102,6 +105,7 @@ namespace EmployeeManagementSystem.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ViewResult Create()
         {
             return View();
@@ -109,6 +113,7 @@ namespace EmployeeManagementSystem.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(EmployeeCreateViewModel model)
         {
             if (ModelState.IsValid)
