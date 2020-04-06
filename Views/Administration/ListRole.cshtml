@@ -23,8 +23,8 @@
                             <td> @role.Id</td>
                             <td> @role.Name</td>
                             <td>
-                                <a asp-controller="Home" asp-action="EmployeeDetails" asp-route-id="@role.Id" class="btn btn-sm btn-danger">Delete</a>
-                                <a class="btn btn-sm btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@role.Id">Edit</a>
+                                <a asp-controller="Administration" asp-action="EditRole" asp-route-id="@role.Id" class="btn btn-sm btn-danger">Delete</a>
+                                <a class="btn btn-sm btn-primary" asp-controller="Administration" asp-action="EditRole" asp-route-id="@role.Id">Edit</a>
                                 
                             </td>
                         </tr>
