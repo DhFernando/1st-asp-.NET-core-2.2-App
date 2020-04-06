@@ -73,7 +73,7 @@ namespace EmployeeManagementSystem.Controllers
             {
                 if(await userManager.IsInRoleAsync(user , role.Name))
                 {
-                    model.Users.Add(user); 
+                    model.Users.Add(user.UserName); 
                 }
             }
 
@@ -102,6 +102,44 @@ namespace EmployeeManagementSystem.Controllers
 
                 return View(model);
             }
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> EditUserInRole( String roleId )
+        {
+            ViewBag.roleId = roleId;
+            
+            var role = await roleManager.FindByIdAsync(roleId);
+            ViewBag.role = role;
+            if(role == null)
+            {
+                ViewBag.ErrorMessage = "";
+                return View("NotFound");
+            }
+
+            var model = new List<UserRoleViewModel>();
+
+            foreach (var user in userManager.Users)
+            {
+                var userRoleViewModel = new UserRoleViewModel
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName
+                };
+
+                if (await userManager.IsInRoleAsync(user, role.Name))
+                {
+                    userRoleViewModel.IsSelected = true;
+                }
+                else
+                {
+                    userRoleViewModel.IsSelected = false;
+                }
+                model.Add(userRoleViewModel);
+
+            }
+            return View(model);
         }
 
     }

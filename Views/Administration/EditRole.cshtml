@@ -40,7 +40,7 @@
                         
                         @foreach (var user in Model.Users)
                         {      
-                                @user.UserName
+                                @user
                         }
                             
                     }
@@ -49,8 +49,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button class="btn btn-primary">Add User</button>
-                    <button class="btn btn-danger">Remove User</button>
+                    <a asp-action="EditUserInRole" asp-controller="Administration" asp-route-roleId="@Model.Id" class="btn btn-primary">Add or Remove Users</a>
                 </div>
             </div>
         </div>

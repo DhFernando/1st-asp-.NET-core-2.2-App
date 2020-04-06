@@ -11,13 +11,13 @@ namespace EmployeeManagementSystem.ViewModels
     {   
         public EditRoleViewModel()
         {
-            Users = new List<ApplicationUser>();
+            Users = new List<String>();
         }
         public String Id { get; set; }
         [Required(ErrorMessage ="Role Name is Required")]
         public String RoleName { get; set; }
 
-        public List<ApplicationUser> Users { get; set; }
+        public List<String> Users { get; set; }
 
     }
 }
