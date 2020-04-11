@@ -105,6 +105,25 @@ namespace EmployeeManagementSystem.Controllers
             }
         }
 
+        public async Task<IActionResult> DeleteRole(String id)
+        {
+            var role = await roleManager.FindByIdAsync(id);
+            if (role == null)
+            {
+
+            }
+            else
+            {
+                var result = await roleManager.DeleteAsync(role);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRole", "Administration");
+                }
+                else { }
+            }
+            return RedirectToAction("ListRole", "Administration");
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> EditUserInRole( String roleId )
@@ -187,6 +206,8 @@ namespace EmployeeManagementSystem.Controllers
             return RedirectToAction("EditRole", new { Id = roleId });
         }
 
+
+
         public IActionResult ListUsers()
         {
             var model = userManager.Users;
@@ -268,6 +289,8 @@ namespace EmployeeManagementSystem.Controllers
 
             return RedirectToAction("ListUsers", "Administration");
         }
+
+        
 
     }
 }
