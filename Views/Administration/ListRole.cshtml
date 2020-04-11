@@ -1,0 +1,56 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewBag.Title = "View Role";
+}
+    
+    <div class="row">
+        <div class="col-12">
+            <a asp-action="CreateRole" asp-controller="Administration" class="float-right mb-4">Create Role</a>
+        </div>
+    </div>
+
+    <div class="row">
+
+        @if (Model.Any())
+        {
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Role Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var role in Model)
+                    {
+                        <tr>
+                            <td> @role.Id</td>
+                            <td> @role.Name</td>
+                            <td>
+                                <a asp-controller="Administration" asp-action="EditRole" asp-route-id="@role.Id" class="btn btn-sm btn-danger">Delete</a>
+                                <a class="btn btn-sm btn-primary" asp-controller="Administration" asp-action="EditRole" asp-route-id="@role.Id">Edit</a>
+                                
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="card">
+                <div class="card-header">
+                    No Role crated yet
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Use the button to Crate A role
+                    </h5>
+                    <a class="btn btn-primary" asp-action="CreateRole" asp-controller="Administration">Crate Role</a>
+                </div>
+            </div>
+        }
+
+    </div>

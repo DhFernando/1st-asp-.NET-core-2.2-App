@@ -1,7 +1,7 @@
 ﻿@model EditUserViewModel
 
-@{ 
-    ViewBag.Title = "Edit User";
+@{
+    ViewBag.Title = "User Edit";
 }
 
     <div class="row">
@@ -14,87 +14,87 @@
             <div class="row">
                 <div class="col-12">
                     <form enctype="multipart/form-data" asp-action="EditUser" asp-controller="Administration" method="post">
-
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group">
                             <label asp-for="Id"></label>
-                            <p class="form-control ">@Model.Id</p>
+                            <p class="form-control" >@Model.Id</p>
                         </div>
-                        <div class="form-group">
-                            <label asp-for="UserName"></label>
-                            <input asp-for="UserName" class="form-control">
-                            
-                        </div>
+                       
                         <div class="form-group">
                             <label asp-for="City"></label>
                             <input asp-for="City" class="form-control">
                         </div>
                         <div class="form-group">
                             <label asp-for="Email"></label>
-                            <input asp-for="Email" class="form-control">
+                            <input asp-for="Email" class="form-control">  
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                         <a asp-controller="Administration" asp-action="ListUsers">Cancel</a>
                     </form>
                 </div>
             </div>
-            <div class="row border rounded mt-4 mb-5">
+            <div class="row border rounded mt-4 p-2 " >
                 <div class="col-12">
-                    <div class="row mt-3 ">
-                        <div class="col-12"><h4>Roles of <span class="text-secondary"> @Model.UserName</span></h4></div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Roles of <span class="text-secondary">@Model.Email</span></h3>
+                        </div>
                     </div>
                     <hr />
                     <div class="row">
                         <div class="col-12">
                             @if (Model.Roles.Any())
-                            {<ul>
+                            {
+                                <ul>
                                     @foreach (var role in Model.Roles)
                                     {
-
                                         <li>@role</li>
                                     }
                                 </ul>
                             }
                             else
                             {
-                                <p>No any Role available</p>
+                                <p>No role at this moment</p>
                             }
                         </div>
                     </div>
                     <hr />
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="col-12">
-                            <a href="#" class="btn btn-primary">Manage Role</a>
+                            <a asp-action="" asp-controller="" class="btn btn-primary">Manage Role</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row border rounded mt-4 mb-5">
+            <div class="row border rounded mt-4 p-2">
                 <div class="col-12">
-                    <div class="row mt-3 ">
-                        <div class="col-12"><h4>Clams of <span class="text-secondary"> @Model.UserName</span></h4></div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Claims of <span class="text-secondary">@Model.Email</span></h3>
+                        </div>
                     </div>
                     <hr />
                     <div class="row">
                         <div class="col-12">
                             @if (Model.Claims.Any())
-                            {<ul>
-                                    @foreach (var Claims in Model.Claims)
+                            {
+                                <ul>
+                                    @foreach (var Claim in Model.Claims)
                                     {
-
-                                        <li>@Claims</li>
+                                        <li>@Claim</li>
                                     }
                                 </ul>
                             }
                             else
                             {
-                                <p >No any Claims available</p>
+                                <p>No Claims at this moment</p>
                             }
                         </div>
                     </div>
                     <hr />
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="col-12">
-                            <a href="#" class="btn btn-primary">Manage Claims</a>
+                            <a asp-action="" asp-controller="" class="btn btn-primary">Manage Claims</a>
                         </div>
                     </div>
                 </div>

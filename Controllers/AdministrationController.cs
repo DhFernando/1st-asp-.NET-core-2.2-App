@@ -209,7 +209,7 @@ namespace EmployeeManagementSystem.Controllers
             var model = new EditUserViewModel
             {
                 Id = user.Id,
-                UserName = user.UserName,
+                UserName = user.Email,
                 City = user.City,
                 Email = user.Email,
                 Roles = userRoles,
@@ -231,14 +231,17 @@ namespace EmployeeManagementSystem.Controllers
             }
             else
             {
-                user.UserName = model.UserName;
-                user.Email = model.Email;
+                user.UserName = model.Email;
                 user.City = model.City;
+                user.Email = model.Email;
 
                 var result = await userManager.UpdateAsync(user);
-
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListUsers");
+                }
             }
-            
+
 
             return View(model);
         }
