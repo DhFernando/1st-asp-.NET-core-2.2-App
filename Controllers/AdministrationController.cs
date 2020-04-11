@@ -246,5 +246,28 @@ namespace EmployeeManagementSystem.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> DeleteUser(String id)
+        {
+            var user = await userManager.FindByIdAsync(id);
+            if(user == null)
+            {
+
+            }
+            else
+            {
+                var result = await userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListUsers", "Administration");
+                }
+                else
+                {
+
+                }
+            }
+
+            return RedirectToAction("ListUsers", "Administration");
+        }
+
     }
 }
