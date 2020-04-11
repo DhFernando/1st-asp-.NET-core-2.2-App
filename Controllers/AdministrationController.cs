@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagementSystem.Controllers
 {
+    
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -184,6 +185,39 @@ namespace EmployeeManagementSystem.Controllers
    
             }
             return RedirectToAction("EditRole", new { Id = roleId });
+        }
+
+        public IActionResult ListUsers()
+        {
+            var model = userManager.Users;
+            return View(model);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user =await userManager.FindByIdAsync(id);
+            
+            if(user == null)
+            {
+
+            }
+            var userClaims = await userManager.GetClaimsAsync(user);
+            var userRoles = await userManager.GetRolesAsync(user);
+
+            var model = new EditUserViewModel
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                City = user.City,
+                Email = user.Email,
+                Roles = userRoles,
+                Claims = userClaims.Select(c=>c.Value).ToList()
+
+            };
+
+            return View(model);
         }
 
     }

@@ -34,3 +34,5 @@ G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManage
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Administration\ListRole.g.cshtml.cs
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Administration\EditRole.g.cshtml.cs
 G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Administration\EditUserInRole.g.cshtml.cs
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Administration\ListUsers.g.cshtml.cs
+G:\languages\web\C#\C# practical\test C#\EmployeeManegementSystem\EmployeeManagementSystem\EmployeeManagementSystem\obj\Debug\netcoreapp2.2\Razor\Views\Administration\EditUser.g.cshtml.cs
