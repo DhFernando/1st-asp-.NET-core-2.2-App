@@ -220,5 +220,28 @@ namespace EmployeeManagementSystem.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> EditUser(EditUserViewModel model)
+        {
+            var user = await userManager.FindByIdAsync(model.Id);
+
+            if (user == null)
+            {
+
+            }
+            else
+            {
+                user.UserName = model.UserName;
+                user.Email = model.Email;
+                user.City = model.City;
+
+                var result = await userManager.UpdateAsync(user);
+
+            }
+            
+
+            return View(model);
+        }
+
     }
 }
