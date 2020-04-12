@@ -206,6 +206,90 @@ namespace EmployeeManagementSystem.Controllers
             return RedirectToAction("EditRole", new { Id = roleId });
         }
 
+        public async Task<IActionResult> EditRoleInUser(String Id)
+        {
+            var user = await userManager.FindByIdAsync(Id);
+            var model = new List<UserRoleViewModel>();
+
+            ViewBag.User = user;
+
+            if (user == null)
+            {
+
+            }
+
+            foreach (var role in roleManager.Roles)
+            {
+                var userRoleViewModel = new UserRoleViewModel
+                {
+                    UserId = Id,
+                    RoleId = role.Id,
+                    RoleName = role.Name
+                };
+
+                if (await userManager.IsInRoleAsync(user, role.Name))
+                {
+                    userRoleViewModel.IsSelected = true;
+                }
+                else
+                {
+                    userRoleViewModel.IsSelected = false;
+                }
+
+                model.Add(userRoleViewModel);
+
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> EditRoleInUser(List<UserRoleViewModel> model, String userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            ViewBag.User = userId;
+
+            if (user == null)
+            {
+
+            }
+
+            for (var i = 0; i < model.Count; i++)
+            {
+                var role = await roleManager.FindByIdAsync(model[i].RoleId);
+
+                IdentityResult result = null;
+
+                if (model[i].IsSelected && !(await userManager.IsInRoleAsync(user, role.Name)))
+                {
+                    result = await userManager.AddToRoleAsync(user, role.Name);
+                }
+                else if (!(model[i].IsSelected) && await userManager.IsInRoleAsync(user, role.Name))
+                {
+                    result = await userManager.RemoveFromRoleAsync(user, role.Name);
+                }
+                else
+                {
+                    continue;
+                }
+
+                if (result.Succeeded)
+                {
+                    if (i < (model.Count) - 1)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return RedirectToAction("EditUser", new { Id = userId });
+                    }
+                }
+
+            }
+            return RedirectToAction("EditUser", new { Id = userId });
+        }
+
 
 
         public IActionResult ListUsers()
